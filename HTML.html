@@ -1,0 +1,72 @@
+<!DOCTYPE html> <!--Tipo de documento-->
+<html lang="pt">    <!--Define o idioma padrão-->
+<head> <!--Aqui temos o cabeçalho, onde ficam os metadados, os quais não são exibidos na página, mas moldam-->
+    <meta charset="UTF-8">  <!--o comportamento do conteúdo da página. Conversa com o navegador, não com o leitor-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Exemplo </title> <!--Texto que aparece na aba. Título do documento-->
+</head>
+<body> <!-- No corpo é organizado, pelas tags, o que, de fato, aparece para o usuário no navegador-->
+    <header>
+        <h1>Linguagem de Marcação: HTML</h1>
+        <h4><strong>HyperText Markup Language</strong></h4>
+    </header>
+    <main>
+        <h3><strong>Estrutura básica de um código HTML com os principais elementos semânticos: </strong></h3>
+        <pre><code>
+        &lt;!DOCTYPE html&gt;  -> Define-se o tipo de documento
+        &lt;html lang="pt"&gt; -> Define-se o idioma padrão
+        &lt;head&gt; -> Aqui temos o cabeçalho, com os metadados.
+            &lt;meta charset="UTF-8"&gt;  -> Define-se a codificação padrão de caracteres
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Document&lt;/title&gt;  -> Define-se o título, texto que aparece na aba.
+        &lt;/head&gt;
+
+        &lt;body&gt; -> Aqui temos o corpo, o que, de fato, aparece no navegador.
+
+            &lt;header&gt;
+                Header é o cabeçalho da página HTML.
+                Agrupa informações como logo e título do site ou redirecionamentos (nav).
+            &lt;/header&gt;
+
+            &lt;nav&gt; -> Seção que agrupa redirecionamentos (links).
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Sobre&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Contato&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+            &lt;/nav&gt;
+            
+            &lt;main&gt;
+                &lt;section&gt;
+                    Divide o conteúdo em blocos temáticos/capítulos. Agrupa elementos que fazem sentido juntos.
+                        &lt;article id="bloco1"&gt;
+                            Envolve conteúdos autossuficientes e independentes
+                            Ou seja, conteúdos que fazem sentido sozinhos. Geralmente agrupados por uma seção.
+                        &lt;/article&gt;
+
+                         &lt;article class="sub_bloco"&gt;
+                            Conteúdo independente 2
+                            Um código pode ter diversos articles e sections, por isso eles podem ser identificados 
+                            pelos atributos: 
+                            id -> identificador único 
+                            class -> identificador múltiplo
+                        &lt;/article&gt;
+                &lt;/section&gt;
+
+                &lt;aside&gt;
+                    Contém informações periféricas e quase sempre é estilizado, com CSS, para ser uma barra laeral.
+                    Geralmente termos relacionados, anúncios, biografias curtas ou widgets.
+                &lt;/aside&gt;
+
+            &lt;/main&gt;
+
+            &lt;footer&gt;
+                É o rodapé da página.
+            &lt;/footer&gt;
+
+        &lt;/body&gt;
+        &lt;/html&gt;</code></pre>
+    </main>
+</body>
+</html>
+
