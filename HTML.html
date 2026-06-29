@@ -12,61 +12,287 @@
     </header>
     <main>
         <h3><strong>Estrutura básica de um código HTML com os principais elementos semânticos: </strong></h3>
-        <pre><code>
-        &lt;!DOCTYPE html&gt;  -> Define-se o tipo de documento
-        &lt;html lang="pt"&gt; -> Define-se o idioma padrão
-        &lt;head&gt; -> Aqui temos o cabeçalho, com os metadados.
-            &lt;meta charset="UTF-8"&gt;  -> Define-se a codificação padrão de caracteres
-            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-            &lt;title&gt;Document&lt;/title&gt;  -> Define-se o título, texto que aparece na aba.
-        &lt;/head&gt;
+        <section class="codigo">
+            <article id="estrutura_basica">
+                <pre><code>
+                &lt;!DOCTYPE html&gt;  -> Define-se o tipo de documento
+                &lt;html lang="pt"&gt; -> Define-se o idioma padrão
+                &lt;head&gt; -> Aqui temos o cabeçalho, com os metadados.
+                    &lt;meta charset="UTF-8"&gt;  -> Define-se a codificação padrão de caracteres
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;title&gt;Document&lt;/title&gt;  -> Define-se o título, texto que aparece na aba.
+                &lt;/head&gt;
+                &lt;body&gt; -> Aqui temos o corpo, o que, de fato, aparece no navegador.
+                    &lt;header&gt;
+                        Header é o cabeçalho da página HTML.
+                        Agrupa informações como logo e título do site ou redirecionamentos (nav).
+                    &lt;/header&gt;
+                    &lt;nav&gt; -> Seção que agrupa redirecionamentos (links).
+                        &lt;ul&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;Sobre&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;Contato&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                    &lt;/nav&gt;
+                
+                    &lt;main&gt;
+                        &lt;section&gt;
+                            Divide o conteúdo em blocos temáticos/capítulos. Agrupa elementos que fazem sentido juntos.
+                                &lt;article id="bloco1"&gt;
+                                    Envolve conteúdos autossuficientes e independentes
+                                    Ou seja, conteúdos que fazem sentido sozinhos. Geralmente agrupados por uma seção.
+                                &lt;/article&gt;
+                                 &lt;article class="sub_bloco"&gt;
+                                    Conteúdo independente 2
+                                    Um código pode ter diversos articles e sections, por isso eles podem ser identificados
+                                    pelos atributos:
+                                    id -> identificador único
+                                    class -> identificador múltiplo
+                                &lt;/article&gt;
+                        &lt;/section&gt;
+                        &lt;aside&gt;
+                            Contém informações periféricas e quase sempre é estilizado, com CSS, para ser uma barra laeral.
+                            Geralmente termos relacionados, anúncios, biografias curtas ou widgets.
+                        &lt;/aside&gt;
+                    &lt;/main&gt;
+                    &lt;footer&gt;
+                        É o rodapé da página.
+                    &lt;/footer&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;</code></pre>
+            </article>
+            </section>
 
-        &lt;body&gt; -> Aqui temos o corpo, o que, de fato, aparece no navegador.
+        <section class="resumo">
+            <h3><strong>Função e comportamento dos principais elementos semânticos HTML:</strong></h3>
+            <article id="elementos_bloco">
+                    <div class="paragrafos">
+                        <p>Elementos semânticos são tags específicas do HTML que têm função definida e propósito tanto para o navegador
+                            quanto para o programador.</p>
+                        <p>Todos esses a seguir são elementos em bloco (block-level elements) por padrão.
+                            Isso significa que eles automaticamente começam em uma nova linha e ocupam 100% da
+                            largura disponível na tela, empilhando-se um em cima do outro.</p>
+                        <p>Elementos em bloco podem ter elementos em bloco ou em linha como filhos.</p>
+                    </div>
 
-            &lt;header&gt;
-                Header é o cabeçalho da página HTML.
-                Agrupa informações como logo e título do site ou redirecionamentos (nav).
-            &lt;/header&gt;
+                <div class="lista_definicao">
+                    <dl>
+                        <dt><strong>Header: </strong></dt>
+                        <dd>Função: Atua como a introdução de uma página ou de uma seção específica. Ele reúne os elementos de identidade e caminhos globais do site.</dd>
+                        <dd>Como se comporta: Fica posicionado no topo do contêiner onde foi inserido. Ele agrupa elementos visualmente destacados e geralmente estende-se por toda a largura horizontal para criar a "barra de topo" ou o cabeçalho de um artigo.</dd>
+                    
+                        <dt><strong>Nav:</strong></dt>
+                        <dd>Função: Centralizar e delimitar os blocos de links de navegação do site (menus). Os leitores de tela usam essa tag para permitir que usuários com deficiência visual pulem o menu e vão direto ao texto, ou acessem os links rapidamente.</dd>
+                        <dd>Como se comporta: Geralmente fica dentro do header principal, mas também pode aparecer no <footer> ou em barras laterais. Internamente, costuma abrigar uma lista ordenada ou não (<ul> ou <ol>) com os links horizontais ou verticais.</dd>
+                    
+                        <dt><strong>Main:</strong></dt>
+                        <dd>Função: Representar o conteúdo exclusivo e central daquela página. É o indicador definitivo para o Google e navegadores sobre o que realmente importa naquele endereço.</dd>
+                        <dd>Como se comporta: Funciona como o grande contêiner central da página. Por ser o "corpo de conteúdo", tudo o que muda de uma página para outra do seu site fica guardado dentro dele. Recomenda-se usar apenas um por documento.</dd>
+                        
+                        <dt><strong>Section</strong></dt>
+                        <dd>Função: Dividir o conteúdo em blocos temáticos ou capítulos. Use uma section quando os elementos internos estiverem muito relacionados e puderem ser agrupados sob um mesmo título de assunto.</dd>
+                        <dd>Como se comporta: Ele empilha-se verticalmente dentro do <main>. É uma convenção de boas práticas que cada section comece com uma tag de título (h2 a h6) para dar um nome àquela parte do documento.</dd>
+                        
+                        <dt><strong>Article:</strong></dt>
+                        <dd>Função: Envolver um conteúdo que é totalmente autossuficiente e independente. Se você recortar um article do seu site e colá-lo em outro lugar, ele ainda fará sentido sozinho.</dd>
+                        <dd>Como se comporta: Assim como as seções, ele cria um bloco vertical. É muito comum ver múltiplos article enfileirados ou organizados em grade (grid) dentro de uma section</dd>
+                        
+                        <dt><strong>Aside:</strong></dt>
+                        <dd>Função: Conter informações periféricas ou secundárias que complementam o assunto principal, mas não são obrigatórias para o entendimento (como termos relacionados, anúncios, biografias curtas ou widgets).</dd>
+                        <dd>Como se comporta: Embora seja um elemento em bloco (que se empilha por padrão), no design visual e no CSS ele quase sempre é estilizado para ser posicionado como uma barra lateral (esquerda ou direita) ao lado do conteúdo do main ou do article.</dd>
+                        
+                        <dt><strong>Footer:</strong></dt>
+                        <dd>Função: Encerrar a página ou seção, trazendo dados institucionais, legais ou de fechamento.</dd>
+                        <dd>Como se comporta: Fica rigidamente posicionado na base inferior da página (ou do contêiner onde foi inserido), estendendo-se horizontalmente para criar a faixa de rodapé do site.</dd>
+                    </dl>
+                </div>
+                <p>No HTML temos um elemento, a div, que não comunica nada ao navegador, serve apenas como um 
+                    container qualquer.</p>
+                <div class="lista_definicao">
+                    <dl>
+                        <dt><strong>Div:</strong></dt>
+                        <dd>Serve para estruturar o layout, agrupar grandes pedaços de código ou criar "caixas" para organizar elementos dentro da página.</dd>
+                        <dd>Ela sempre começa numa nova linha e ocupa 100% da largura disponível da página, empurrando qualquer coisa que venha depois para a linha de baixo.</dd>
+                    </dl>
+                </div>
+            </article>
 
-            &lt;nav&gt; -> Seção que agrupa redirecionamentos (links).
-                &lt;ul&gt;
-                    &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href="#"&gt;Sobre&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href="#"&gt;Contato&lt;/a&gt;&lt;/li&gt;
-                    &lt;/ul&gt;
-            &lt;/nav&gt;
-            
-            &lt;main&gt;
-                &lt;section&gt;
-                    Divide o conteúdo em blocos temáticos/capítulos. Agrupa elementos que fazem sentido juntos.
-                        &lt;article id="bloco1"&gt;
-                            Envolve conteúdos autossuficientes e independentes
-                            Ou seja, conteúdos que fazem sentido sozinhos. Geralmente agrupados por uma seção.
-                        &lt;/article&gt;
+            <article id="elementos_linha">
+                <div class="paragrafos">
+                    <p>Envolvem palavras/frases e ocupam apenas o espaço necessário para envolver os elementos definidos.</p>
+                    <p>Permitem apenas elementos em linha como filhos.</p>
+                </div>
 
-                         &lt;article class="sub_bloco"&gt;
-                            Conteúdo independente 2
-                            Um código pode ter diversos articles e sections, por isso eles podem ser identificados 
-                            pelos atributos: 
-                            id -> identificador único 
-                            class -> identificador múltiplo
-                        &lt;/article&gt;
-                &lt;/section&gt;
+                <div class="lista_definicao">
+                    <dl>
+                        <dt><strong>Span:</strong></dt>
+                        <dd>Cria uma "seleção" invisível que envolve apenas o texto selecionado (horizontal/linha).</dd>
+                        <dd>&lt;span&gt;&lt;/span&gt; </dd>
 
-                &lt;aside&gt;
-                    Contém informações periféricas e quase sempre é estilizado, com CSS, para ser uma barra laeral.
-                    Geralmente termos relacionados, anúncios, biografias curtas ou widgets.
-                &lt;/aside&gt;
+                        <dt><strong>Tag de Link (link):</strong></dt>
+                        <dd>Localiza-se no head apenas, linka a página atual com outras páginas, para facilitar a navegação, guarda os links dos documentos das folhas de estilo da pagina ou javascript, por exemplo.</dd>
+                        <dd>Possui os atributos href, que indica a URI do arquivo e o atributo rel, que define a relação do recurso adicionado com o documento atual.</dd>
 
-            &lt;/main&gt;
+                        <dt><strong>Tag de Link (a):</strong></dt>
+                        <dd>Transforma um pedaço de texto em um link clicável sem quebrar o parágrafo, no body. Esse elemento se comporta como inline, mas pode marcar um bloco de texto também.</dd>
+                        <dd>Exemplo: &lt;p&gt;Clique &lt;a href="#"&gt;aqui&lt;/a&gt; para baixar o arquivo.&lt;/p&gt;</dd>
+                        <dd>O atributo href recebe o URI de alguma página na internet. Podemos relacionar, também, com telefone e email.</dd>
 
-            &lt;footer&gt;
-                É o rodapé da página.
-            &lt;/footer&gt;
+                        <dt><strong>Tags de Ênfase: </strong></dt>
+                        <dd>
+                            <ul>
+                                <li>&lt;strong&gt;&lt;/strong&gt; -> Negrito</li>
+                                <li>&lt;i&gt;&lt;/i&gt; -> Itálico</li>
+                                <li></li>&lt;mark&gt;&lt;/mark&gt; -> Grifado</li>
+                            </ul>
+                        </dd>
 
-        &lt;/body&gt;
-        &lt;/html&gt;</code></pre>
+                        <dt><strong>Tag de imagem (img):</strong></dt>
+                        <dd>Embora carregue um arquivo visual pesado, a tag &lt;img&gt; é, por padrão, um elemento inline! Se você colocar uma imagem pequena no meio de uma frase, ela vai se comportar como se fosse uma letra grande.</dd>
+                        <dd>Exemplo: &lt;p&gt;Siga nosso perfil &lt;img src="icone.png" alt="Insta"&gt; no Instagram.&lt;/p&gt;</dd>
+                        <dd> o atributo src é o arquivo da imagem e o alt é o nome dela.</dd>
+
+                        <dt><strong>Tag de código(code):</strong></dt>
+                        <dd>&lt;code&gt; Código... &lt;/code&gt;</dd>
+                    </dl>
+                </div>
+            </article>
+        </section>
+
+        <section id="listas e tabelas">
+            <h3><strong>Listas e Tabelas: </strong></h3>
+            <article id="listas nao ordenadas">
+                <dl>
+                    <dt><strong>Listas não ordenadas</strong></dt>
+                    <dd>Listas indicadas por símbolos ondem a ordem dos elementos não é relevante.</dd>
+                    <dd>Exemplo: 
+                        <pre>
+                            <code>
+                                &lt;ul&gt;
+                                    &lt;li&gt;Item 1&lt;/li&gt;
+                                    &lt;li&gt;Item 2&lt;/li&gt;
+                                    &lt;li&gt;Item 3&lt;/li&gt;
+                                &lt;/ul&gt;
+                            </code>
+                        </pre>
+                    </dd>
+
+                    <dt><strong>Listas ordenadas:</strong></dt>
+                    <dd>Listas numeradas, onde a ordem dos itens importa.</dd>
+                    <dd>Exemplo: 
+                        <pre>
+                            <code>
+                                &lt;ol&gt;
+                                    &lt;li&gt;Item 1&lt;/li&gt;
+                                    &lt;li&gt;Item 2&lt;/li&gt;
+                                    &lt;li&gt;Item 3&lt;/li&gt;
+                                &lt;/ol&gt;
+                            </code>
+                        </pre>
+                    </dd>
+
+                    <dt><strong>Listas de Definição ou Descrição: </strong></dt>
+                    <dd>lista especializada usada para associar termos aos seus respectivos significados, descrições ou valores. Diferente das anteriores, ela não utiliza marcadores visuais comuns ou números, mas sim um recuo de margem (parágrafo avançado) nas descrições.</dd>
+                    <dd>Exemplo: 
+                        <pre>
+                            <code>
+                                &lt;dl&gt;
+                                    &lt;dt&gt;Termo 1&lt;/dt&gt;
+                                        &lt;dd&gt;Definição.&lt;/dd&gt;
+                            
+                                    &lt;dt&gt;Termo 2&lt;/dt&gt;
+                                        &lt;dd&gt;Definição.&lt;/dd&gt;
+                            </code>
+                        </pre>
+                    </dd>
+
+                    <dt><strong>Listas Aninhadas: </strong></dt>
+                    <dd>São uma combinação dessas listas. Uma lista dentro da outra.</dd>
+                    <dd>Regra de sintaxe: A nova lista interna deve ser aberta obrigatoriamente dentro de uma tag &lt;li&gt;, e nunca diretamente dentro de um &lt;ul&gt; ou &lt;ol&gt;.</dd>
+                    <dd>Exemplo: 
+                        <pre>
+                            <code>
+                                &lt;ul&gt;
+                                    &lt;li&gt;Tipo 1:
+                                        &lt;ul&gt;
+                                            &lt;li&gt; Item 1&lt;/li&gt;
+                                            &lt;li&gt;Item 2&lt;/li&gt;
+                                        &lt;/ul&gt;
+                                    &lt;/li&gt;
+
+                                    &lt;li&gt;Tipo 2: 
+                                        &lt;ul&gt;
+                                            &lt;li&gt; Item 1&lt;/li&gt;
+                                            &lt;li&gt;Item 2&lt;/li&gt;
+                                        &lt;/ul&gt;
+                                    &lt;/li&gt;
+                                &lt;/ul&gt;
+                            </code>
+                        </pre>
+                    </dd>
+
+                    <dt><strong>Tabelas:</strong></dt>
+                    <dd>Para dados que possuem relação bidimensional (linhas e colunas).</dd>
+                    <dd>As tabelas HTML puras não vêm acompanhadas daquelas linhas de grade escuras ou bordas bonitas por padrão. Elas apenas alinham os textos perfeitamente. Para adicionar as linhas pretas divisórias tradicionais de uma tabela, você precisará aplicar a propriedade border ou estilos em CSS</dd>
+                    <dd>Para montar uma tabela, utilizamos um conjunto de tags essenciais:
+                        <ul>
+                            <li>&lt;table&gt;: Define o início e o fim da tabela completa.</li>
+                            <li>&lt;thead&gt;: Agrupa o conteúdo do cabeçalho da tabela (os títulos das colunas).</li>
+                            <li>&lt;tbody&gt;: Agrupa o conteúdo principal ou o "corpo" com os dados da tabela.</li>
+                            <li>&lt;tfoot&gt;: Agrupa o rodapé da tabela (usado geralmente para totais, resumos ou notas).</li>
+                            <li>&lt;tr&gt; (Table Row): Cria uma linha na tabela. Tudo dentro de uma tabela precisa estar dentro de uma linha.</li>
+                            <li>&lt;th&gt; (Table Header): Cria uma célula de cabeçalho. O texto fica automaticamente em negrito e centralizado pelo navegador.</li>
+                            <li>&lt;td&gt; (Table Data): Cria uma célula comum de dados/conteúdo.</li>
+                        </ul>
+                    <dd>Atributos especiais para essas tags: </dd>
+                        <ul>
+                            <li>Colspan (Mesclar Colunas): Faz uma célula se esticar horizontalmente por mais de uma coluna.</li>
+                            <li>Rowspan (Mesclar Linhas): Faz uma célula se esticar verticalmente por mais de uma linha.</li>
+                        </ul>
+                    </dd>
+                    <dd>Exemplo: 
+                        <pre><code>
+                            &lt;table&gt;
+                                &lt;thead&gt;
+                                    &lt;tr&gt;
+                                        &lt;th scope="col1"&gt;Tipo 1&lt;/th&gt;
+                                        &lt;th scope="col2"&gt;Tipo 2&lt;/th&gt;  -> O atributo scope especifica o grupo de dados
+                                        &lt;th scope="col3"&gt;Tipo 3&lt;/th&gt;
+                                    &lt;/tr&gt;
+                                &lt;/thead&gt;
+
+                                &lt;tbody&gt;
+                                    &lt;tr&gt;
+                                        &lt;td&gt;Info 1.1&lt;/td&gt;
+                                        &lt;td&gt;Info 1.2&lt;/td&gt;
+                                        &lt;td&gt;Info 1.3&lt;/td&gt;
+                                    &lt;/tr&gt;
+
+                                    &lt;tr&gt;
+                                        &lt;td&gt;Info 2.1&lt;/td&gt;
+                                        &lt;td&gt;Info 2.2&lt;/td&gt;
+                                        &lt;td&gt;Info 2.3&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                &lt;/tbody&gt;
+
+                                &lt;tfoot&gt;
+                                    &lt;tr&gt;
+                                        &lt;td&gt;Final 1.1&lt;/td&gt;
+                                        &lt;td&gt;Final 1.2&lt;/td&gt;
+                                        &lt;td&gt;Final 1.3&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                &lt;/tfoot&gt;
+                            &lt;/table&gt;
+                        </code></pre>
+                    </dd>
+                </dl>
+            </article>
+        </section>
     </main>
+    <footer>
+        <p>DCC202 - Desenvolvimento Web</p>
+        <p>Maria Clara Esquerdo Cunha</p>
+    </footer>
 </body>
 </html>
 
