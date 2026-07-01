@@ -321,10 +321,97 @@
             </article>
 
             <article class="modelo de caixa">
+                <h3><strong>Box Model</strong></h3>
+                <ul>
+                    <li>
+                        <dl><dt><strong>border</strong></dt></dl>
+                            <dd>Controla estilo, cor e tamanho.</dd>
+                    </li>
 
+                    <li>
+                        <dl><dt><strong>padding</strong></dt></dl>
+                            <dd>Controla o espaçamento entre a borda e o conteúdo.</dd>
+                    </li>
 
+                    <li>
+                        <dl><dt><strong>margin</strong></dt></dl>
+                            <dd>Controla a distância entre os elementos.</dd>
+                    </li>
+                </ul>
+                <p>Propriedades de controle individual: -top (cima), -right (direita), -bottom (baixo) e -left (esquerda).</p>
+
+                <h3><strong>Box Sizing</strong></h3>
+                <ul>
+                    <li>
+                        <dl><dt><strong>box-sizing: content-box</strong></dt></dl>
+                            <dd>O tamanho que você define no width e height se aplica apenas ao conteúdo interno.</dd>
+                            <dd>Se adicionarmos padding (espaçamento) ou border (borda), a caixa estica e fica maior na tela do que o tamanho que você programou.</dd>
+                            <dd>Cálculo: Tamanho Real = width + padding + border</dd>
+                    </li>
+
+                    <li>
+                        <dl><dt><strong>box-sizing: border-box</strong></dt></dl>
+                            <dd>O tamanho que você define no width e height é o tamanho final e absoluto da caixa na tela.</dd>
+                            <dd>Se adicionarmos padding ou border, o navegador espreme o conteúdo para dentro, mas a caixa nunca muda de tamanho, respeitando o layout que você planejou.</dd>
+                            <dd>Tamanho Real = width (o padding e a borda já estão inclusos dentro dele)</dd>
+                    </li>
+                </ul>
+                <p>Depois de definir esse padrão, dando preferencia para border-box, podemos definir width, weight e aspect-rating.</p>
             </article>
-
+            <article class="flexbox">
+                <h3><strong>Flexbox</strong></h3>
+                <p>É um modelo de layout criado para facilitar a distribuição de espaço e o alinhamento de elementos em uma página</p>
+                <p>É unidimensional, pois trabalha com uma dimensão por vex: ou linha ou coluna.</p>
+                <p>Estrutura básica do flexbox:</p>
+                <p>
+                    <pre><code>
+                        .container-flexivel
+                        {
+                            display: flex;                   1. Ativa o modo Flexbox no elemento pai 
+                            justify-content: valor;          2. Alinha os filhos na horizontal (Eixo Principal) 
+                            align-items: valor;              3. Alinha os filhos na vertical (Eixo Cruzado) 
+                        }
+                    </code></pre>
+                </p>
+                <p>As propriedades aplicadas ao pai servem para ditar o alinhamento e a direção do fluxo dos filhos.</p>
+                <p><h3>proprirdades:</h3></p>
+                <ul>
+                    <li><h3><strong>flex-direction (Direção de fluxo)</strong></h3></li>
+                        <ul>
+                            <li>row (padrão): Os itens ficam deitados em linha, da esquerda para a direita.</li>
+                            <li>column: Os itens ficam empilhados em coluna, de cima para baixo.</li>
+                            <li>row-reverse ou column-reverse: Inverte a ordem de exibição dos elementos.</li>
+                        </ul>
+                    
+                    <li><h3><strong>flex-wrap (Quebra de Linha)</strong></h3></li>
+                        <ul>
+                            <li>nowrap (padrão): Todos os itens tentam ficar na mesma linha, mesmo que fiquem espremidos ou transbordem a tela.</li>
+                            <li>wrap: Os itens quebram e vão para a linha de baixo se não houver espaço suficiente.</li>
+                        </ul>
+                    
+                    <li><h3><strong>justify-content (Alinhamento no Eixo Principal)</strong></h3></li>
+                        <ul>
+                            <li>flex-start (padrão): Junta os itens no início da linha.</li>
+                            <li>flex-end: Junta os itens no final da linha.</li>
+                            <li>center: Centraliza os itens na linha.</li>
+                            <li>space-between: Coloca o primeiro item no início, o último no fim, e distribui o espaço restante de forma igual entre eles (muito usado em menus e cabeçalhos).</li>
+                            <li>space-around e space-evenly: Distribuem os espaços de forma proporcional ao redor de todos os itens.</li>
+                        </ul>
+                    
+                    <li><h3><strong>align-items (Alinhamento no Eixo Cruzado)</strong></h3></li>
+                        <ul>
+                            <li>stretch (padrão): Estica os itens para que todos fiquem com a altura máxima do container pai.</li>
+                            <li>center: Centraliza os itens verticalmente.</li>
+                            <li>flex-start / flex-end: Alinha os itens no topo ou na base da linha.</li>
+                        </ul>
+                </ul>
+                <p>Propriedades Usadas nos Elementos Filhos (Flex Items)</p>
+                <ul>
+                    <li>flex-grow: Define a capacidade de um item crescer para ocupar o espaço vazio restante. Por padrão é 0 (não cresce).</li>
+                    <li>flex-shrink: Define a capacidade de um item encolher caso o espaço falte. Por padrão é 1.</li>
+                    <li>align-self: Permite que um único item ignore o align-items definido pelo pai e tenha um alinhamento vertical exclusivo só para ele.</li>
+                </ul>
+            </article>
 
         </section>
 
