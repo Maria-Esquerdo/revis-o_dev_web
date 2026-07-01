@@ -23,8 +23,309 @@
         </div>
 
         <section id="sintaxe">
+            <article class="seletores">
+                <h3><strong>Sintaxe inicial e anexo com o arquivo HTML:</strong></h3>
+                <p>Dentro do arquivo HTML, podemos estilizar de forma inline ou podemos criar uma tag, no head, "style". No entanto, não são formas práticas.</p>
+                <p>O mais recomendado é criar, separadamente, um arquivo CSS e linkar esse, com a <strong>tag link, no head do arquivo HTML</strong>.</p>
+                <p><pre><code><strong>&lt;link rel="stylesheet" href="nome do arquivo"&gt;</strong></code></pre></p>
+                <p>Esses arquivos CSS não têm um cabeçalho inicial, como o HTML. Iniciamos diretamente com os seletores e a estilização.</p>
+                <pre><code><strong>
+                    seletor 
+                    {
+                        chave1: valor1;
+                        chave2: valor2;
+                        chave3: valor3;
+                    }
+                </strong></code></pre>
+                <p>Esses seletores são as tags usadas no HTML. As chaves são os possíveis atributos com seus respectivos valores.</p>
+            </article>
 
+            <article class="variacoes seletores">
+                <h3><strong>Variações na sintaxe/outras formas de selecionar elementos do HTML:</strong></h3>
             
+                <ul>
+                    <li>
+                        <dl>
+                            <dt><h4><strong>Seletor Universal:  *</strong></h4></dt>
+                            <dd>Seleciona todos os elementos do arquivo HTML.</dd>
+                            <dd>
+                                <pre><code>
+                                    *{
+                                        border: 0px;
+                                        margin: 0px;
+                                        padding: 0px;
+                                    }
+                                </code></pre>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt><h4><strong>Seletor por tipo: tipo1, tipo2, tipo3...</strong></h4></dt>
+                            <dd>Seleciona os elementos daquele determinado tipo, e, com o uso da vírgula, seleciona mais de um tipo para aquela mesma estilização.</dd>
+                            <dd>
+                                <pre><code>
+                                    a, b, c
+                                    {
+                                        border: 0px;
+                                        margin: 0px;
+                                        padding: 0px;
+                                    }
+                                </code></pre>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt><h4><strong>Seletor de classes:  .</strong></h4></dt>
+                            <dd><p>Seleciona todos os elementos pertencentes a uma determinada classe.</p>
+                                <p>Podemos selecionar elementos que fazem parte de mais de uma classe (classe dentro de classe), também.</p>
+                            </dd>
+                            <dd>
+                                <pre><code>
+                                    .classe                 .classeA.classeB  ->Seleciona elementos que fazem parte
+                                    {                       {                      da classe A e da classe B.
+                                        color: red;             color: blue;
+                                    }                       }
+                                </code></pre>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt><h4><strong>Seletor de identificador (id):  #</strong></h4></dt>
+                            <dd>Seleciona todos os elementos pertencentes a um determinado identificador.</dd> 
+                            <dd>
+                                <pre><code>
+                                    #id                     #idA#idB  ->Seleciona elementos que fazem parte
+                                    {                       {                      do id A e do id B.
+                                        color: red;             color: blue;
+                                    }                       }
+                                </code></pre>
+                            </dd>
+                        
+                        </dl>
+                    </li>
+                        
+                    <li>
+                        <dl>
+                            <dt><h4><strong>Seletor de filhos diretos:  &gt;</strong></h4></dt>
+                            <dd>Seleciona todos os elementos que são filhos diretos, descendentes diretos, de primeiro grau, do elemento pai.</dd>
+                            <dd>
+                                <pre><code>
+                                    pai > filho  -> Seleciona todos os elementos filhos do elemento pai
+                                    {
+                                        background-color: blue;
+                                    }
+
+                                    Esse seletor pode ser combinado, também: 
+                                    a > b > c 
+                                    {
+                                        Seleciona todos os filhos diretos dos b's que são filhos diretos de a's
+                                    }
+                                </code></pre>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt><h4><strong>Seletor de filhos (geral):  </strong></h4></dt>
+                            <dd>É representado por um espaço em branco e seleciona todos os elementos filhos dentro do elemento pai, independente do grau de parentesco.</dd>
+                            <dd>
+                                <pre><code>
+                                    main div
+                                    {
+                                        Seleciona todas as div's filhas da main, independente de são filhas diretas, netas...
+                                    }
+                                </code></pre>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt><h4><strong>Seletor de irmão adjacente:  +</strong></h4></dt>
+                            <dd>Seleciona o elemento adjacente ao especificado, caso seja do tipo dado.</dd>
+                            <dd><p>Exemplo: a + b</p>
+                            <p>Seleciona o elemento logo depois de a se for do tipo b.</p></dd>
+                            <dd>
+                                <pre><code>
+                                    h2 + p 
+                                    {
+                                        Seleciona os parágraafos que estão imediatamente depois de h2 (irmão adjacente).
+                                    }
+                                </code></pre>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt><h4><strong>Seletor geral de irmãos:  ~ </strong></h4></dt>
+                            <dd>Seleciona todos os elementos do segundo tipo que são irmãos do primeiro tipo. Independente se são irmãos imediatos ou não.</dd>
+                            <dd><p>Exemplo: a ~ b</p>
+                            <p>Seleciona todos os elementos b que são irmãos de a.</p></dd>
+                            <dd>
+                                <pre><code>
+                                    h2 ~ p 
+                                    {
+                                        Seleciona todos os parágrafos irmãos de h2 (abaixo de h2, sendo do mesmo pai).
+                                    }
+                                </code></pre>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt><h4><strong>Seletor por atributo:  []</strong></h4></dt>
+                            <dd>Há diversas formas de trabalhar com esse atributo:</dd>
+                        </dl>
+                        <ul>
+                            <li>
+                                <dl><dt><strong>Seletor simples ([]):</strong></dt></dl>
+                                <dd>Seleciona os eleemntos que tenham o determinado atributo ou seleciona os elementos que tenham o determinado atributo com o valor definido.</dd>
+                                <dd>
+                                    <pre><code>
+                                        a[href] -> Seleciona todos os elementos a com atributo href.
+                                        li[value="5"] -> Seleciona todos os li's que tem atributo value = 5.
+                                    </code></pre>
+                                </dd>
+                            </li>
+
+                            <li>
+                                <dl><dt><strong>Para selecionar valores de atributo que começam um com fragmento de texto: ([atributo|="xxx"])</strong></dt></dl>
+                                <dd>
+                                    <pre><code>
+                                        a[lang|="pt"] 
+                                        {
+                                            Seleciona os elementos a's que possuem atributo lang com início pt ou pt-.
+                                            Aceita o hífen.
+                                        }
+                                    </code></pre>
+                                </dd>
+                            </li>
+
+                            <li>
+                                <dl><dt><strong>Para selecionar valores de atributo que começam um com fragmento de texto: ([atributo^="xxx"])</strong></dt></dl>
+                                <dd>
+                                    <pre><code>
+                                        a[href|="https"] 
+                                        {
+                                            Seleciona os elementos a's que possuem atributo href com início exato https.
+                                        }
+                                    </code></pre>
+                                </dd>
+                            </li>
+
+                            <li>
+                                <dl><dt><strong>Para selecionar valores de atributo que terminam um com fragmento de texto: ([atributo$="xxx"])</strong></dt></dl>
+                                <dd>
+                                    <pre><code>
+                                        a[href$="pdf"] 
+                                        {
+                                            Seleciona os elementos a's que possuem atributo href com final pdf.
+                                        }
+                                    </code></pre>
+                                </dd>
+                            </li>
+
+                            <li>
+                                <dl><dt><strong>Para selecionar valores de atributo em que um certo fragmento de texto está no meio: ([atributo*="xxx"])</strong></dt></dl>
+                                <dd>
+                                    <pre><code>
+                                        a[href*="ufjf"] 
+                                        {
+                                            Seleciona os elementos a's que possuem atributo href que tenham o fragmento "ufjf" no meio do texto.
+                                        }
+                                    </code></pre>
+                                </dd>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt><h4><strong>Seletores de pseudoclasses:  (:)</strong></h4></dt>
+                            <dd>As pseudoclasses adicionam funções extras a elementos do html e não estão contidas previamente nele.</dd>
+                            <dd>Estilizam dinamicamente o elemento explicitado sem a necessidade do JavaScript.</dd>
+                            <ul>
+                                <li>
+                                    <dl><dt><strong>x:hover ou :active</strong></dt></dl>
+                                        <dd>O cursor é ativado quando o mouse passa por cima.</dd>
+                                </li>
+
+                                <li>
+                                    <dl><dt><strong>x:nth-child(3)</strong></dt></dl>
+                                        <dd>Seleciona os elementos de um a cada três.</dd>
+                                </li>
+                                
+                                <li>
+                                    <dl><dt><strong>x:nth-last-of-type(2)</strong></dt></dl>
+                                        <dd>Seleciona o segudo elemento disponível no elemento pai.</dd>
+                                </li>
+                            </ul>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt><h4><strong>Seletor de pseudo-elementos:  (::)</strong></h4></dt>
+                                <dd>Os pseudo-elementos servem para estilizar uma parte específica do conteúdo de um elemento, diferente das pseudo-classes, que estilizam o elemento inteiro.</dd>
+                                <dd>Exemplos: </dd>
+                                <dd>
+                                    <ul>
+                                        <li>
+                                            <dl><dt><strong>::before</strong></dt></dl>
+                                                <dd>Adiciona algo logo antes de um elemento.</dd>
+                                        </li>
+
+                                        <li>
+                                            <dl><dt><strong>::after</strong></dt></dl>
+                                                <dd>Adiciona algo logo depois de um elemento.</dd>
+                                        </li>
+                                    
+                                        <li>
+                                            <dl><dt><strong>::first-line</strong></dt></dl>
+                                                <dd>Altera algo na primeira linha.</dd>
+                                        </li>                      
+                                    </ul>
+                                </dd>
+                            </dl>
+                    </li>
+
+                </ul>
+            <h3><strong>Herança e características herdadas:</strong></h3>
+            <p>Nem todas as propriedades CSS são herdadas automaticamente.</p>
+            <p>Propriedades de texto, geralmente são herdadas por padrão, mas propriedades de layout, caixa e posicionamento não são.</p>
+            <p>Podemos controlar a herança com algumas palavras-chave:</p>
+            <ul>
+                <li>
+                    <dl><dt><strong>inherit</strong></dt></dl>
+                        <dd>Força um elemento filho a herdar o estilo do pai.</dd>
+                </li>
+                <li>
+                    <dl><dt><strong>initial</strong></dt></dl>
+                        <dd>Cancela qualquer herança e redefine a propriedade para o valor padrão de fábrica do navegador.</dd>
+                </li>
+                <li>
+                    <dl><dt><strong>unset</strong></dt></dl>
+                        <dd>Funciona como um "reset". Se a propriedade for herdada por natureza, ela age como inherit. Se não for, age como initial.</dd>
+                </li>
+            </ul>
+
+            </article>
+
+            <article class="modelo de caixa">
+
+
+            </article>
+
+
         </section>
 
         
